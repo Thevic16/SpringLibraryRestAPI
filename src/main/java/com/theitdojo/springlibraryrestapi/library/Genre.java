@@ -5,22 +5,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class Author {
+public class Genre {
 
     @Id
     @GeneratedValue
     private Long id;
 
     private String name;
-    private String lastname;
 
-    public Author() {
+    public Genre() {
     }
 
-    public Author(Long id, String name, String lastname) {
+    public Genre(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.lastname = lastname;
     }
 
     public Long getId() {
@@ -39,20 +37,11 @@ public class Author {
         this.name = name;
     }
 
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
     @Override
     public String toString() {
-        return "Author{" +
+        return "Genre{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", lastname='" + lastname + '\'' +
                 '}';
     }
 }
