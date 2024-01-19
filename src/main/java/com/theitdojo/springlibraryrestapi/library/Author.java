@@ -3,6 +3,9 @@ package com.theitdojo.springlibraryrestapi.library;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+
+import java.util.List;
 
 @Entity
 public class Author {
@@ -13,6 +16,9 @@ public class Author {
 
     private String name;
     private String lastname;
+
+    @ManyToMany(mappedBy = "authors")
+    private List<Book> books;
 
     public Author() {
     }

@@ -3,7 +3,6 @@ package com.theitdojo.springlibraryrestapi.library;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,13 +13,23 @@ public class Book {
 
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Book")
+    @ManyToMany
+    @JoinTable(
+            name = "book_author",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "author_id")
+    )
     private List<Author> authors;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Book")
+    @ManyToMany
+    @JoinTable(
+            name = "book_genre",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "genre_id")
+    )
     private List<Genre> genres;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Book")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
     private List<Page> pages;
 
     private LocalDate publishedDate;

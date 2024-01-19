@@ -45,40 +45,40 @@ public class LibraryCommandLineRunner implements CommandLineRunner {
         genreRepository.save(new Genre("Action"));
 
         bookRepository.save(new Book("The Enigma Code",
-                authorRepository.findAllByAuthorByNameAndLastname("Jane", "Doe"),
-                genreRepository.findAllByGenreByName("Mystery"), null, LocalDate.parse("2023-05-15")));
+                authorRepository.findAllByNameAndLastname("Jane", "Doe"),
+                genreRepository.findAllByName("Mystery"), null, LocalDate.parse("2023-05-15")));
 
         bookRepository.save(new Book("Echoes of Eternity",
-                authorRepository.findAllByAuthorByNameAndLastname("John", "Smith"),
-                genreRepository.findAllByGenreByName("Science Fiction"), null, LocalDate.parse("2022-11-28")));
+                authorRepository.findAllByNameAndLastname("John", "Smith"),
+                genreRepository.findAllByName("Science Fiction"), null, LocalDate.parse("2022-11-28")));
 
         bookRepository.save(new Book("Whispers in the Wind",
-                authorRepository.findAllByAuthorByNameAndLastname("Emily", "Johnson"),
-                genreRepository.findAllByGenreByName("Romance"), null, LocalDate.parse("2024-02-10")));
+                authorRepository.findAllByNameAndLastname("Emily", "Johnson"),
+                genreRepository.findAllByName("Romance"), null, LocalDate.parse("2024-02-10")));
 
         bookRepository.save(new Book("Lost in the Shadows",
-                authorRepository.findAllByAuthorByNameAndLastname("Alex", "Turner"),
-                genreRepository.findAllByGenreByName("Thriller"), null, LocalDate.parse("2023-09-03")));
+                authorRepository.findAllByNameAndLastname("Alex", "Turner"),
+                genreRepository.findAllByName("Thriller"), null, LocalDate.parse("2023-09-03")));
 
         bookRepository.save(new Book("Beyond the Horizon",
-                authorRepository.findAllByAuthorByNameAndLastname("Samantha", "Roberts"),
-                genreRepository.findAllByGenreByName("Adventure"), null, LocalDate.parse("2022-07-19")));
+                authorRepository.findAllByNameAndLastname("Samantha", "Roberts"),
+                genreRepository.findAllByName("Adventure"), null, LocalDate.parse("2022-07-19")));
 
         bookRepository.save(new Book("The Art of Deception",
-                authorRepository.findAllByAuthorByNameAndLastname("Michael", "Anderson"),
-                genreRepository.findAllByGenreByName("Suspense"), null, LocalDate.parse("2023-12-05")));
+                authorRepository.findAllByNameAndLastname("Michael", "Anderson"),
+                genreRepository.findAllByName("Suspense"), null, LocalDate.parse("2023-12-05")));
 
         bookRepository.save(new Book("Serenade for the Stars",
-                authorRepository.findAllByAuthorByNameAndLastname("Jessica", "Taylor"),
-                genreRepository.findAllByGenreByName("Fantasy"), null, LocalDate.parse("2024-01-22")));
+                authorRepository.findAllByNameAndLastname("Jessica", "Taylor"),
+                genreRepository.findAllByName("Fantasy"), null, LocalDate.parse("2024-01-22")));
 
         bookRepository.save(new Book("Silent Echo",
-                authorRepository.findAllByAuthorByNameAndLastname("Benjamin", "Williams"),
-                genreRepository.findAllByGenreByName("Mystery"), null, LocalDate.parse("2023-04-08")));
+                authorRepository.findAllByNameAndLastname("Benjamin", "Williams"),
+                genreRepository.findAllByName("Mystery"), null, LocalDate.parse("2023-04-08")));
 
         bookRepository.save(new Book("In the Line of Fire",
-                authorRepository.findAllByAuthorByNameAndLastname("David", "Miller"),
-                genreRepository.findAllByGenreByName("Action"), null, LocalDate.parse("2024-03-11")));
+                authorRepository.findAllByNameAndLastname("David", "Miller"),
+                genreRepository.findAllByName("Action"), null, LocalDate.parse("2024-03-11")));
 
     }
 }
