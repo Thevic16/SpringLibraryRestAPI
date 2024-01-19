@@ -17,8 +17,7 @@ public class Author {
     public Author() {
     }
 
-    public Author(Long id, String name, String lastname) {
-        this.id = id;
+    public Author(String name, String lastname) {
         this.name = name;
         this.lastname = lastname;
     }

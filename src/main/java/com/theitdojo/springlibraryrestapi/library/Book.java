@@ -2,6 +2,7 @@ package com.theitdojo.springlibraryrestapi.library;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -22,13 +23,12 @@ public class Book {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "Book")
     private List<Page> pages;
 
-    private Date publishedDate;
+    private LocalDate publishedDate;
 
     public Book() {
     }
 
-    public Book(Long id, String name, List<Author> authors, List<Genre> genres, List<Page> pages, Date publishedDate) {
-        this.id = id;
+    public Book(String name, List<Author> authors, List<Genre> genres, List<Page> pages, LocalDate publishedDate) {
         this.name = name;
         this.authors = authors;
         this.genres = genres;
@@ -76,11 +76,11 @@ public class Book {
         this.pages = pages;
     }
 
-    public Date getPublishedDate() {
+    public LocalDate getPublishedDate() {
         return publishedDate;
     }
 
-    public void setPublishedDate(Date publishedDate) {
+    public void setPublishedDate(LocalDate publishedDate) {
         this.publishedDate = publishedDate;
     }
 }

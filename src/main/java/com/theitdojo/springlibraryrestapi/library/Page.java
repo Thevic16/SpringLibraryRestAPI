@@ -22,8 +22,7 @@ public class Page {
     public Page() {
     }
 
-    public Page(Long id, Long number, String header, String content, Book book) {
-        this.id = id;
+    public Page(Long number, String header, String content, Book book) {
         this.number = number;
         this.header = header;
         this.content = content;
