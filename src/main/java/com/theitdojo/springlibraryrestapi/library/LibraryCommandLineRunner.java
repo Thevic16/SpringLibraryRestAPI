@@ -1,16 +1,20 @@
 package com.theitdojo.springlibraryrestapi.library;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
 @Component
+@Profile("dev")
 public class LibraryCommandLineRunner implements CommandLineRunner {
     AuthorRepository authorRepository;
     GenreRepository genreRepository;
     PageRepository pageRepository;
     BookRepository bookRepository;
+
+
 
     public LibraryCommandLineRunner(AuthorRepository authorRepository, GenreRepository genreRepository,
                                     PageRepository pageRepository, BookRepository bookRepository) {
@@ -22,6 +26,8 @@ public class LibraryCommandLineRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        // Creating data for testing
+
         authorRepository.save(new Author("Jane", "Doe"));
         authorRepository.save(new Author("John", "Smith"));
         authorRepository.save(new Author("Emily", "Johnson"));
