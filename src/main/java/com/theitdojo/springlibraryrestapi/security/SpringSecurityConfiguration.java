@@ -4,6 +4,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 
 import java.util.function.Function;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,12 +20,24 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SpringSecurityConfiguration {
 
-    // TODO RESPLACE THE InMemoryUser with persistent data and add environment variables to set the users.
+    @Value("${USERNAME1:admin}")
+    String username1;
+
+    @Value("${PASSWORD1:password}")
+    String password1;
+
+    @Value("${USERNAME2:victor}")
+    String username2;
+
+    @Value("${PASSWORD1:dummy}")
+    String password2;
+
+
     @Bean
     public InMemoryUserDetailsManager createUserDetailsManager() {
 
-        UserDetails userDetails1 = createNewUser("admin", "password");
-        UserDetails userDetails2 = createNewUser("victor", "dummy");
+        UserDetails userDetails1 = createNewUser(username1, password1);
+        UserDetails userDetails2 = createNewUser(username2, password2);
 
         return new InMemoryUserDetailsManager(userDetails1, userDetails2);
     }
@@ -54,6 +67,7 @@ public class SpringSecurityConfiguration {
                 auth -> auth.anyRequest().authenticated());
         http.httpBasic(withDefaults());
 
-        return http.csrf(AbstractHttpConfigurer::disable).headers(headers -> headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)).build();
+        return http.csrf(AbstractHttpConfigurer::disable).headers(headers ->
+                headers.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable)).build();
     }
 }
