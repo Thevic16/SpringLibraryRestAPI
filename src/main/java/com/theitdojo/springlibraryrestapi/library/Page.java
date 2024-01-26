@@ -1,5 +1,6 @@
 package com.theitdojo.springlibraryrestapi.library;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +18,7 @@ public class Page {
 
     @ManyToOne
     @JoinColumn(name = "book_id")
+    @JsonBackReference
     private Book book;
 
     public Page() {

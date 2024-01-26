@@ -1,5 +1,6 @@
 package com.theitdojo.springlibraryrestapi.library;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -17,6 +18,7 @@ public class Genre {
     private String name;
 
     @ManyToMany(mappedBy = "genres")
+    @JsonBackReference
     private List<Book> books;
 
     public Genre() {

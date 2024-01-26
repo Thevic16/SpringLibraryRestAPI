@@ -1,5 +1,6 @@
 package com.theitdojo.springlibraryrestapi.library;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -19,6 +20,7 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id")
     )
+    @JsonManagedReference
     private List<Author> authors;
 
     @ManyToMany
@@ -27,9 +29,11 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "genre_id")
     )
+    @JsonManagedReference
     private List<Genre> genres;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "book")
+    @JsonManagedReference
     private List<Page> pages;
 
     private LocalDate publishedDate;
@@ -91,5 +95,17 @@ public class Book {
 
     public void setPublishedDate(LocalDate publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", authors=" + authors +
+                ", genres=" + genres +
+                ", pages=" + pages +
+                ", publishedDate=" + publishedDate +
+                '}';
     }
 }

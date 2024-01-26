@@ -1,5 +1,6 @@
 package com.theitdojo.springlibraryrestapi.library;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -18,6 +19,7 @@ public class Author {
     private String lastname;
 
     @ManyToMany(mappedBy = "authors")
+    @JsonBackReference
     private List<Book> books;
 
     public Author() {
